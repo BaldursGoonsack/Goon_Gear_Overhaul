@@ -215,7 +215,6 @@ data "StatusType" "BOOST"
 //data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;ApplyToDead"
 data "StackId" "GOON_NYRULNA_EXPLOSION_TOGGLE"
 data "StackType" "Overwrite"
-//data "OnApplyFunctors" "RemoveStatus(GOON_NYRULNA_EXPLOSION_TOGGLE_OFF)"
 
 new entry "GOON_NYRULNA_EXPLOSION_TOGGLE_OFF"
 type "StatusData"
@@ -223,8 +222,7 @@ data "StatusType" "BOOST"
 //data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;ApplyToDead"
 data "StackId" "GOON_NYRULNA_EXPLOSION_TOGGLE"
 data "StackType" "Overwrite"
-//data "OnApplyFunctors" "RemoveStatus(GOON_NYRULNA_EXPLOSION_TOGGLE_ON)"
-data "Boosts" "DamageBonus(3d4, Thunder)"
+data "Boosts" "DamageBonus(3d4, Thunder,Magical)"
 data "BoostConditions" "IsRangedUnarmedAttack()"
 
 // ==================================== Spells ====================================
