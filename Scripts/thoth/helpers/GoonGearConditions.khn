@@ -12,7 +12,7 @@ end
 
 function Goon_d4_Fire_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_FIRE_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_FIRE_THROW'}, {'DIPPED_FIRE'}, {'ELEMENTAL_WEAPON_FIRE'}, {}, {}, entity)
 end
 
 function Goon_d4_Cold_Throw(entity)
@@ -52,25 +52,10 @@ end
 
 function Goon_d4_Psychic_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_PSYCHIC_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_PSYCHIC_THROW'}, {'ELEMENTAL_WEAPON_PSYCHIC'}, {}, {}, entity)
 end
 
 function Goon_Burning_Throw(entity)
     local entity = entity or context.Target
 	return HasAnyStatus({'BURNING'}, {FLAMING_SPHERE_AURA}, {}, {}, entity)
-end
-
-
-
-
-
-
-function Goon_d4_Fire_Normal_Throw(entity)
-    local entity = entity or context.Target
-	return HasAnyStatus({'DIPPED_FIRE'}, {'ELEMENTAL_WEAPON_FIRE'}, {}, {}, entity)
-end
-
-function Goon_d4_Psychic_Normal_Throw(entity)
-    local entity = entity or context.Target
-	return HasAnyStatus({'ELEMENTAL_WEAPON_PSYCHIC'}, {}, {}, entity)
 end
