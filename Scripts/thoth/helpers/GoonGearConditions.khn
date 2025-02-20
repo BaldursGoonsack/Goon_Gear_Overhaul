@@ -10,23 +10,67 @@ function Goon_Nyrulna_Throw(entity)
 	return HasAnyStatus({'GOON_NYRULNA_EXPLOSION_TOGGLE_ON'}, {}, {}, entity)
 end
 
-function Goon_d4_Psychic_Magic_Throw(entity)
-    local entity = entity or context.Target
-	return HasAnyStatus({'MAG_PSYCHIC_THROW'}, {}, {}, entity)
-end
-
-function Goon_d4_Psychic_Throw(entity)
-    local entity = entity or context.Target
-	return HasAnyStatus({'ELEMENTAL_WEAPON_PSYCHIC'}, {}, {}, entity)
-end
-
-function Goon_d4_Fire_Magic_Throw(entity)
+function Goon_d4_Fire_Throw(entity)
     local entity = entity or context.Target
 	return HasAnyStatus({'MAG_FIRE_THROW'}, {}, {}, entity)
 end
 
-function Goon_d4_Fire_Throw(entity)
+function Goon_d4_Cold_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_COLD_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Lightning_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_LIGHTNING_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Thunder_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_THUNDER_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Acid_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_ACID_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_POISON_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Necrotic_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_NECROTIC_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Force_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_FORCE_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Psychic_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_PSYCHIC_THROW'}, {}, {}, entity)
+end
+
+function Goon_Burning_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'BURNING'}, {FLAMING_SPHERE_AURA}, {}, {}, entity)
+end
+
+
+
+
+
+
+function Goon_d4_Fire_Normal_Throw(entity)
     local entity = entity or context.Target
 	return HasAnyStatus({'DIPPED_FIRE'}, {'ELEMENTAL_WEAPON_FIRE'}, {}, {}, entity)
 end
 
+function Goon_d4_Psychic_Normal_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'ELEMENTAL_WEAPON_PSYCHIC'}, {}, {}, entity)
+end
