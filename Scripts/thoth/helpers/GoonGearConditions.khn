@@ -12,42 +12,42 @@ end
 
 function Goon_d4_Fire_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_FIRE_THROW'}, {'DIPPED_FIRE'}, {'ELEMENTAL_WEAPON_FIRE'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_FIRE_THROW'}, {'ELEMENTAL_WEAPON_FIRE'}, {'DIPPED_FIRE'}, {}, {}, entity)
 end
 
 function Goon_d4_Cold_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_COLD_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_COLD_THROW'}, {'ELEMENTAL_WEAPON_COLD'}, {'MAG_FROST_FROST_WEAPON'}, {'MAG_FROST_FROST_SMALL_WEAPON'}, {}, {}, entity)
 end
 
 function Goon_d4_Lightning_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_LIGHTNING_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_LIGHTNING_THROW'}, {'ELEMENTAL_WEAPON_LIGHTNING'}, {}, {}, entity)
 end
 
 function Goon_d4_Thunder_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_THUNDER_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_THUNDER_THROW'}, {'ELEMENTAL_WEAPON_THUNDER'}, {'MAG_THUNDER_THUNDER_WEAPON'}, {}, {}, entity)
 end
 
 function Goon_d4_Acid_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_ACID_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_ACID_THROW'}, {'ELEMENTAL_WEAPON_ACID'}, {}, {}, entity)
 end
 
 function Goon_d4_Poison_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_POISON_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_POISON_THROW'}, {'ELEMENTAL_WEAPON_POISON'}, {'DIPPED_POISON'}, {'ALCH_TOXIN_BASIC_DIPPED'}, entity)
 end
 
 function Goon_d4_Necrotic_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_NECROTIC_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_NECROTIC_THROW'}, {'ELEMENTAL_WEAPON_NECROTIC'}, {'MAG_NECROTIC_NECROTIC_WEAPON'}, {}, {}, entity)
 end
 
 function Goon_d4_Force_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_FORCE_THROW'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_FORCE_THROW'}, {'ELEMENTAL_WEAPON_FORCE'}, {}, {}, entity)
 end
 
 function Goon_d4_Psychic_Throw(entity)
@@ -57,5 +57,30 @@ end
 
 function Goon_Burning_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'BURNING'}, {FLAMING_SPHERE_AURA}, {}, {}, entity)
+	return HasAnyStatus({'BURNING'}, {'FLAMING_SPHERE_AURA'}, {}, {}, entity)
+end
+
+function Goon_d4_Radiant_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_RADIANT_RADIANCE_WEAPON'}, {}, {}, entity)
+end
+
+function Goon_d8_Radiant_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_RADIANT_STRONG_RADIANCE_WEAPON'}, {}, {}, entity)
+end
+
+function Goon_d6_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'TOXIN_SERPENTVENOM_DIPPED'}, {'MAG_DIPPED_POISON_BROODMOTHERS_REVENGE'}, {}, entity)
+end
+
+function Goon_d8_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'TOXIN_WYVERN_DIPPED'}, {}, {}, entity)
+end
+
+function Goon_d10_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'TOXIN_PURPLEWORM_DIPPED'}, {}, {}, entity)
 end
