@@ -1,0 +1,32 @@
+local __util = require 'larian.util'
+
+function Goon_Slinging_Shoes_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_PROJECTILE_SHOES_TECHNICAL'}, {}, {}, entity)
+end
+
+function Goon_Nyrulna_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'GOON_NYRULNA_EXPLOSION_TOGGLE_ON'}, {}, {}, entity)
+end
+
+function Goon_d4_Psychic_Magic_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_PSYCHIC_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Psychic_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'ELEMENTAL_WEAPON_PSYCHIC'}, {}, {}, entity)
+end
+
+function Goon_d4_Fire_Magic_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'MAG_FIRE_THROW'}, {}, {}, entity)
+end
+
+function Goon_d4_Fire_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'DIPPED_FIRE'}, {'ELEMENTAL_WEAPON_FIRE'}, {}, {}, entity)
+end
+

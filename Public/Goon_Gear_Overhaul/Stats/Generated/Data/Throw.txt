@@ -1,0 +1,88 @@
+// ==================================== Throw overhaul ====================================
+// TARGET:IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0)
+// Changed to
+// TARGET:IF(HasStatus('GOON_NYRULNA_EXPLOSION_TOGGLE_ON', context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0)
+
+new entry "SHILLELAGH"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SHILLELAGH"
+// data "Boosts" "WeaponProperty(Magical);WeaponDamageDieOverride(1d8);WeaponAttackRollAbilityOverride(SpellCastingAbility);Attribute(InventoryBound)"
+data "Boosts" "WeaponProperty(Magical);WeaponDamageDieOverride(1d8);WeaponAttackRollAbilityOverride(SpellCastingAbility)"
+
+new entry "PACT_BLADE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "PACT_BLADE"
+// data "Boosts" "WeaponProperty(Magical);IntrinsicSummonerProficiency();IntrinsicSourceProficiency();ItemReturnToOwner();Attribute(InventoryBound);WeaponAttackRollAbilityOverride(Charisma);CannotBeDisarmed()"
+data "Boosts" "WeaponProperty(Magical);IntrinsicSummonerProficiency();IntrinsicSourceProficiency();ItemReturnToOwner();WeaponAttackRollAbilityOverride(Charisma);CannotBeDisarmed()"
+// StatusImmunity(DISARM)
+
+// VEO
+type "SpellData"
+data "SpellType" "Throw"
+data "TargetFloor" "-1"
+data "TargetRadius" "ThrownObjectRange"
+data "AreaRadius" "1"
+data "SpellProperties" "GROUND:DealDamage(1,Bludgeoning);IF(HasStatus('MAG_PROJECTILE_SHOES_TECHNICAL', context.HitDescription.ThrownObject)):DealDamage(2d4, Psychic);TARGET:IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0);TARGET:IF(HasStatus('MAG_FIRE_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Fire);TARGET:IF(HasStatus('MAG_COLD_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Cold);TARGET:IF(HasStatus('MAG_LIGHTNING_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Lightning);TARGET:IF(HasStatus('MAG_THUNDER_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Thunder);TARGET:IF(HasStatus('MAG_ACID_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Acid);TARGET:IF(HasStatus('MAG_POISON_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Poison);TARGET:IF(HasStatus('MAG_NECROTIC_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Necrotic);TARGET:IF(HasStatus('MAG_FORCE_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Force);TARGET:IF(HasStatus('MAG_PSYCHIC_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Psychic);TARGET:IF((HasStatus('BURNING', context.HitDescription.ThrownObject) or HasStatus('FLAMING_SPHERE_AURA', context.HitDescription.ThrownObject))):ApplyStatus(SELF, BURNING,100,1)"
+
+// Dude's
+new entry "Throw_Throw"
+type "SpellData"
+data "SpellType" "Throw"
+using "Throw_Throw"
+data "SpellProperties" "GROUND:DealDamage(1,Bludgeoning);TARGET:IF(Goon_Slinging_Shoes_Throw(context.HitDescription.ThrownObject)):DealDamage(2d4, Psychic,Magical,,0,,true);TARGET:IF(Goon_Nyrulna_Throw(context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0);TARGET:IF((HasStatus('MAG_FIRE_THROW', context.HitDescription.ThrownObject) or HasStatus('DIPPED_FIRE', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_FIRE', context.HitDescription.ThrownObject))):DealDamage(1d4, Fire,Magical,,0,,true);TARGET:IF((HasStatus('MAG_COLD_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_FROST_FROST_WEAPON', context.HitDescription.ThrownObject) or HasStatus('MAG_FROST_FROST_SMALL_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_COLD', context.HitDescription.ThrownObject))):DealDamage(1d4, Cold,Magical,,0,,true);TARGET:IF((HasStatus('MAG_LIGHTNING_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_LIGHTNING', context.HitDescription.ThrownObject))):DealDamage(1d4, Lightning,Magical,,0,,true);TARGET:IF((HasStatus('MAG_THUNDER_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_THUNDER_THUNDER_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_THUNDER', context.HitDescription.ThrownObject))):DealDamage(1d4, Thunder,Magical,,0,,true);TARGET:IF((HasStatus('MAG_ACID_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_ACID', context.HitDescription.ThrownObject))):DealDamage(1d4, Acid,Magical,,0,,true);TARGET:IF(HasStatus('MAG_RADIANT_RADIANCE_WEAPON', context.HitDescription.ThrownObject)):DealDamage(1d4, Radiant,Magical,,0,,true);TARGET:IF((HasStatus('MAG_POISON_THROW', context.HitDescription.ThrownObject) or HasStatus('DIPPED_POISON', context.HitDescription.ThrownObject) or HasStatus('POISON_SIMPLE_DIPPED', context.HitDescription.ThrownObject) or HasStatus('ALCH_TOXIN_BASIC_DIPPED', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_POISON', context.HitDescription.ThrownObject))):DealDamage(1d4, Poison,Magical,,0,,true);TARGET:IF((HasStatus('TOXIN_SERPENTVENOM_DIPPED', context.HitDescription.ThrownObject) or HasStatus('MAG_DIPPED_POISON_BROODMOTHERS_REVENGE',context.HitDescription.ThrownObject))):DealDamage(1d6, Poison,Magical,,0,,true);TARGET:IF(HasStatus('TOXIN_WYVERN_DIPPED', context.HitDescription.ThrownObject)):DealDamage(1d8, Poison,Magical,,0,,true);TARGET:IF(HasStatus('TOXIN_PURPLEWORM_DIPPED', context.HitDescription.ThrownObject)):DealDamage(1d10, Poison,Magical,,0,,true);TARGET:IF((HasStatus('MAG_NECROTIC_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_NECROTIC_NECROTIC_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_NECROTIC', context.HitDescription.ThrownObject))):DealDamage(1d4, Necrotic,Magical,,0,,true);TARGET:IF((HasStatus('MAG_FORCE_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_FORCE', context.HitDescription.ThrownObject))):DealDamage(1d4, Force,Magical,,0,,true);TARGET:IF((HasStatus('MAG_PSYCHIC_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_PSYCHIC', context.HitDescription.ThrownObject))):DealDamage(1d4, Psychic,Magical,,0,,true);TARGET:IF((HasStatus('BURNING', context.HitDescription.ThrownObject) or HasStatus('FLAMING_SPHERE_AURA', context.HitDescription.ThrownObject))):ApplyStatus(SELF, BURNING,100,1)"
+
+// Vanilla
+new entry "Throw_Throw"
+type "SpellData"
+data "SpellType" "Throw"
+using "Throw_Throw"
+data "SpellProperties" "GROUND:DealDamage(1,Bludgeoning);TARGET:IF(HasStatus('MAG_PROJECTILE_SHOES_TECHNICAL', context.HitDescription.ThrownObject)):DealDamage(2d4, Psychic,Magical,,0,,true);TARGET:IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0);TARGET:IF(HasStatus('MAG_FIRE_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Fire,Magical,,0,,true);TARGET:IF(HasStatus('MAG_COLD_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Cold,Magical,,0,,true);TARGET:IF(HasStatus('MAG_LIGHTNING_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Lightning,Magical,,0,,true);TARGET:IF(HasStatus('MAG_THUNDER_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Thunder,Magical,,0,,true);TARGET:IF(HasStatus('MAG_ACID_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Acid,Magical,,0,,true);TARGET:IF(HasStatus('MAG_POISON_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Poison,Magical,,0,,true);TARGET:IF(HasStatus('MAG_NECROTIC_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Necrotic,Magical,,0,,true);TARGET:IF(HasStatus('MAG_FORCE_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Force,Magical,,0,,true);TARGET:IF(HasStatus('MAG_PSYCHIC_THROW', context.HitDescription.ThrownObject)):DealDamage(1d4, Psychic,Magical,,0,,true);TARGET:IF((HasStatus('BURNING', context.HitDescription.ThrownObject) or HasStatus('FLAMING_SPHERE_AURA', context.HitDescription.ThrownObject))):ApplyStatus(SELF, BURNING,100,1)"
+
+// Mine
+new entry "Throw_Throw"
+type "SpellData"
+data "SpellType" "Throw"
+using "Throw_Throw"
+data "SpellProperties" "GROUND:DealDamage(1,Bludgeoning);TARGET:IF(Goon_Slinging_Shoes_Throw(context.HitDescription.ThrownObject)):DealDamage(2d4, Psychic,Magical,,0,,true);TARGET:IF(Goon_Nyrulna_Throw(context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0);TARGET:IF(Goon_d4_Fire_Magic_Throw(context.HitDescription.ThrownObject)):DealDamage(1d4, Fire,Magical,,0,,true);
+// data "ThrowableTargetConditions" "CanThrowWeight() and not Grounded() and not IsItemDisabled() and not HasAttribute('InventoryBound') and (IsMovable() or Character() or Dead()) and CanMove(context.Target, context.Source, false) and (not IsEquipped() or IsEquipmentSlot(EquipmentSlot.MeleeMainHand) or IsEquipmentSlot(EquipmentSlot.MeleeOffHand) or IsEquipmentSlot(EquipmentSlot.Boots)) and not Tagged('CANT_SHOVE_THROW')"
+data "ThrowableTargetConditions" "CanThrowWeight() and not Grounded() and (IsMovable() or Character() or Dead()) and CanMove(context.Target, context.Source, false) and (not IsEquipped() or IsEquipmentSlot(EquipmentSlot.MeleeMainHand) or IsEquipmentSlot(EquipmentSlot.MeleeOffHand) or IsEquipmentSlot(EquipmentSlot.Boots)) and not Tagged('CANT_SHOVE_THROW')"
+// data "Trajectories" "rules:861d0046-1858-401e-b97b-28f7b3e3e89a,d5e54f29-f80f-4105-96b2-23b5af9321c7,bac38aab-dfa7-4a5a-9c2a-552b0b626ee3"
+data "Trajectories" "ff93ba9c-124c-454e-ac8c-436c136bcef2,75d615be-9277-6e22-6c17-fa51981d7560,8c00238b-549d-dc71-8fcb-42ba68bae142"
+
+
+// GROUND:DealDamage(1,Bludgeoning);
+
+// TARGET:IF(HasStatus('MAG_PROJECTILE_SHOES_TECHNICAL', context.HitDescription.ThrownObject)):DealDamage(2d4, Psychic,Magical,,0,,true);
+
+// TARGET:IF(HasStatus('GOON_NYRULNA_EXPLOSION_TOGGLE_ON', context.HitDescription.ThrownObject)):ApplyStatus(MAG_THE_THORNS_AOE_DAMAGE_TECHNICAL, 100, 0);
+
+// TARGET:IF((HasStatus('MAG_FIRE_THROW', context.HitDescription.ThrownObject) or HasStatus('DIPPED_FIRE', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_FIRE', context.HitDescription.ThrownObject))):DealDamage(1d4, Fire,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_COLD_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_FROST_FROST_WEAPON', context.HitDescription.ThrownObject) or HasStatus('MAG_FROST_FROST_SMALL_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_COLD', context.HitDescription.ThrownObject))):DealDamage(1d4, Cold,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_LIGHTNING_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_LIGHTNING', context.HitDescription.ThrownObject))):DealDamage(1d4, Lightning,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_THUNDER_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_THUNDER_THUNDER_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_THUNDER', context.HitDescription.ThrownObject))):DealDamage(1d4, Thunder,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_ACID_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_ACID', context.HitDescription.ThrownObject))):DealDamage(1d4, Acid,Magical,,0,,true);
+
+// TARGET:IF(HasStatus('MAG_RADIANT_RADIANCE_WEAPON', context.HitDescription.ThrownObject)):DealDamage(1d4, Radiant,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_POISON_THROW', context.HitDescription.ThrownObject) or HasStatus('DIPPED_POISON', context.HitDescription.ThrownObject) or HasStatus('POISON_SIMPLE_DIPPED', context.HitDescription.ThrownObject) or HasStatus('ALCH_TOXIN_BASIC_DIPPED', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_POISON', context.HitDescription.ThrownObject))):DealDamage(1d4, Poison,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('TOXIN_SERPENTVENOM_DIPPED', context.HitDescription.ThrownObject) or HasStatus('MAG_DIPPED_POISON_BROODMOTHERS_REVENGE',context.HitDescription.ThrownObject))):DealDamage(1d6, Poison,Magical,,0,,true);
+
+// TARGET:IF(HasStatus('TOXIN_WYVERN_DIPPED', context.HitDescription.ThrownObject)):DealDamage(1d8, Poison,Magical,,0,,true);
+
+// TARGET:IF(HasStatus('TOXIN_PURPLEWORM_DIPPED', context.HitDescription.ThrownObject)):DealDamage(1d10, Poison,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_NECROTIC_THROW', context.HitDescription.ThrownObject) or HasStatus('MAG_NECROTIC_NECROTIC_WEAPON', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_NECROTIC', context.HitDescription.ThrownObject))):DealDamage(1d4,
+// Necrotic,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_FORCE_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_FORCE', context.HitDescription.ThrownObject))):DealDamage(1d4, Force,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('MAG_PSYCHIC_THROW', context.HitDescription.ThrownObject) or HasStatus('ELEMENTAL_WEAPON_PSYCHIC', context.HitDescription.ThrownObject))):DealDamage(1d4, Psychic,Magical,,0,,true);
+
+// TARGET:IF((HasStatus('BURNING', context.HitDescription.ThrownObject) or HasStatus('FLAMING_SPHERE_AURA', context.HitDescription.ThrownObject))):ApplyStatus(SELF, BURNING,100,1)"
