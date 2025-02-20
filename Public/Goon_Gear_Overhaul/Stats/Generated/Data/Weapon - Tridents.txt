@@ -177,7 +177,7 @@ data "Description" "hae3aaacagd119g4b34g9083g3bcc6d5e6186"
 // You may toggle this feature on and off.
 data "ExtraDescription" "h71374fc8g784cg41e3ga5f0g9cc48ba14c84;2"
 data "DescriptionParams" "DealDamage(3d4, Thunder);Distance(6);DealDamage(1d4, Thunder)"
-data "Properties" "IsToggled"
+data "Properties" "IsToggled;ToggledDefaultOn"
 data "ToggleOnFunctors" "IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, context.Source))):ApplyEquipmentStatus(MeleeMainHand, GOON_NYRULNA_EXPLOSION_TOGGLE_ON, 100, -1);IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, context.Source))):ApplyEquipmentStatus(MeleeOffHand, GOON_NYRULNA_EXPLOSION_TOGGLE_ON, 100, -1)"
 data "ToggleOffFunctors" "IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, context.Source))):ApplyEquipmentStatus(MeleeMainHand, GOON_NYRULNA_EXPLOSION_TOGGLE_OFF, 100, -1);IF(HasStatus('MAG_THE_THORNS_WEAPON_BOND', GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, context.Source))):ApplyEquipmentStatus(MeleeOffHand, GOON_NYRULNA_EXPLOSION_TOGGLE_OFF, 100, -1)"
 
