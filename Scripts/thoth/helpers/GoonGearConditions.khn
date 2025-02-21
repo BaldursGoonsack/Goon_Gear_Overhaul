@@ -37,12 +37,12 @@ end
 
 function Goon_d4_Poison_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_POISON_THROW'}, {'ELEMENTAL_WEAPON_POISON'}, {'DIPPED_POISON'}, {'ALCH_TOXIN_BASIC_DIPPED'}, entity)
+	return HasAnyStatus({'MAG_POISON_THROW'}, {'ELEMENTAL_WEAPON_POISON'}, {'DIPPED_POISON'}, {'ALCH_TOXIN_BASIC_DIPPED'}, {}, {}, entity)
 end
 
 function Goon_d4_Necrotic_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'MAG_NECROTIC_THROW'}, {'ELEMENTAL_WEAPON_NECROTIC'}, {'MAG_NECROTIC_NECROTIC_WEAPON'}, {}, {}, entity)
+	return HasAnyStatus({'MAG_NECROTIC_THROW'}, {'ELEMENTAL_WEAPON_NECROTIC'}, {'MAG_NECROTIC_NECROTIC_WEAPON'}, {'MAG_NECROTIC_NECROTIC_WEAPON_REVOCATION'}, {}, {}, entity)
 end
 
 function Goon_d4_Force_Throw(entity)
@@ -72,7 +72,7 @@ end
 
 function Goon_d6_Poison_Throw(entity)
     local entity = entity or context.Target
-	return HasAnyStatus({'TOXIN_SERPENTVENOM_DIPPED'}, {'MAG_DIPPED_POISON_BROODMOTHERS_REVENGE'}, {}, entity)
+	return HasAnyStatus({'TOXIN_SERPENTVENOM_DIPPED'}, {'MAG_DIPPED_POISON_BROODMOTHERS_REVENGE'}, {}, {}, entity)
 end
 
 function Goon_d8_Poison_Throw(entity)
@@ -83,4 +83,14 @@ end
 function Goon_d10_Poison_Throw(entity)
     local entity = entity or context.Target
 	return HasAnyStatus({'TOXIN_PURPLEWORM_DIPPED'}, {}, {}, entity)
+end
+
+function Goon_Drow_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'POISON_DROW_DIPPED'}, {}, {}, entity)
+end
+
+function Goon_Basic_Poison_Throw(entity)
+    local entity = entity or context.Target
+	return HasAnyStatus({'POISON_SIMPLE_DIPPED'}, {}, {}, entity)
 end
