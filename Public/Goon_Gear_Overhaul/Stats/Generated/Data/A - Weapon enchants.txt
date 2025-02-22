@@ -87,7 +87,7 @@ data "AuraRadius" "2"
 data "AuraStatuses" "IF(HasStatus('GOON_PACT_BLADE_OWNER')):ApplyStatus(GOON_PACT_BLADE_IN_RANGE)"
 data "StatusPropertyFlags" "IgnoreResting"
 data "StatusGroups" "SG_RemoveOnRespec"
-data "IsUnique" "1"
+//data "IsUnique" "1"
 //
 data "ApplyEffect" "63760e78-ec10-4c41-a097-173a6f1fe536"
 
@@ -101,8 +101,15 @@ data "StackId" "GOON_PACT_BLADE_OWNER"
 data "StackType" "Overwrite"
 data "RemoveConditions" "HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_10')"
 data "RemoveEvents" "OnStatusApplied"
-data "OnRemoveFunctors" "IF(HasStatus('GOON_PACT_BLADE_OWNER') and not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_10')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100,1)
-data "IsUnique" "1"
+//data "IsUnique" "1"
+//data "Passives" "Goon_Pact_Blade_Out_Of_Range_Passive"
+
+new entry "Goon_Pact_Blade_Out_Of_Range_Passive"
+type "PassiveData"
+data "Properties" "IsHidden"
+data "StatsFunctors" "IF(not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_2,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_2')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_3,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_3')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_4,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_4')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_5,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_5')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_6,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_6')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_7,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_7')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_8,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_8')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_9,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_9')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_10,100, 1)"
+data "StatsFunctorContext" "OnTurn"
+data "Conditions" "StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_1') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_2') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_3') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_4') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_5') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_6') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_7') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_8') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_9') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_10')"
 
 // Technical used by both the weapon and the owner to track aura interactions
 // When exiting range it applies the turn tracker
@@ -111,12 +118,14 @@ type "StatusData"
 data "StatusType" "BOOST"
 //data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
 //
-data "StackId" "GOON_PACT_BLADE_IN_RANGE"
+data "StackId" "GOON_PACT_BLADE_RANGE"
 data "StackType" "Overwrite"
+data "StackPriority" "11"
 data "AuraRadius" "2"
 data "AuraStatuses" "IF(HasStatus('GOON_PACT_BLADE')):ApplyStatus(GOON_PACT_BLADE_IN_RANGE)"
 data "RemoveConditions" "HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_10')"
 data "RemoveEvents" "OnStatusApplied"
+//data "OnRemoveFunctors" "IF(HasStatus('GOON_PACT_BLADE') or HasStatus('GOON_PACT_BLADE_OWNER') and not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_10')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100,1)"
 data "OnRemoveFunctors" "IF(HasStatus('GOON_PACT_BLADE') or HasStatus('GOON_PACT_BLADE_OWNER') and not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_10')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100,1)"
 
 // Track turns out of range
@@ -130,21 +139,10 @@ data "Description" ""
 data "Icon" "Skill_Warlock_BindPactWeapon"
 //data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;ApplyToDead;IgnoreResting"
 //
-data "StackId" "GOON_PACT_BLADE_OUT_OF_RANGE"
+data "StackId" "GOON_PACT_BLADE_RANGE"
 data "StackType" "Overwrite"
 data "RemoveConditions" "not HasStatus('GOON_PACT_BLADE') and not HasStatus('GOON_PACT_BLADE_OWNER') or HasStatus('GOON_PACT_BLADE_IN_RANGE')"
 data "RemoveEvents" "OnStatusRemoved;OnStatusApplied"
-//data "TickFunctors" "IF(not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_2,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_2')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_3,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_3')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_4,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_4')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_5,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_5')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_6,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_6')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_7,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_7')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_8,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_8')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_9,100, -1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_9')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_10,100, -1)"
-//data "TickType" "StartRound"
-// data "Passives" "Goon_Pact_Blade_Out_Of_Range_Passive"
-
-// new entry "Goon_Pact_Blade_Out_Of_Range_Passive"
-// type "PassiveData"
-// data "Properties" "IsHidden"
-// data "StatsFunctors" "IF(not HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_1,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_1')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_2,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_2')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_3,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_3')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_4,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_4')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_5,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_5')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_6,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_6')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_7,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_7')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_8,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_8')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_9,100, 1);IF(HasStatus('GOON_PACT_BLADE_OUT_OF_RANGE_9')):ApplyStatus(GOON_PACT_BLADE_OUT_OF_RANGE_10,100, 1)"
-// data "StatsFunctorContext" "OnTurn"
-//data "Conditions" "StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_1') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_2') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_3') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_4') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_5') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_6') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_7') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_8') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_9') or StatusID('GOON_PACT_BLADE_OUT_OF_RANGE_10') or "
-
 
 new entry "GOON_PACT_BLADE_OUT_OF_RANGE_1"
 type "StatusData"
