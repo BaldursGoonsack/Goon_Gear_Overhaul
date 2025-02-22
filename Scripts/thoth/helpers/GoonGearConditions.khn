@@ -94,3 +94,17 @@ function Goon_Basic_Poison_Throw(entity)
     local entity = entity or context.Target
 	return HasAnyStatus({'POISON_SIMPLE_DIPPED'}, {}, {}, entity)
 end
+
+function GoonPactBladeCheckMain(entity)
+    entity = entity or context.Target
+    local offWeapon = GetItemInEquipmentSlot(EquipmentSlot.MeleeMainHand, entity)
+
+    return offWeapon.IsValid and HasAnyStatus({'GOON_PACT_BLADE'}, {}, {}, offWeapon)
+end
+
+function GoonPactBladeCheckOff(entity)
+    entity = entity or context.Target
+    local offWeapon = GetItemInEquipmentSlot(EquipmentSlot.MeleeOffHand, entity)
+
+    return offWeapon.IsValid and HasAnyStatus({'GOON_PACT_BLADE'}, {}, {}, offWeapon)
+end
