@@ -63,10 +63,14 @@ end
 
 -- Custom stuff from here on
 
--- Needs testing
-function IsDwarfThrow(entity)
-    entity = entity or context.Source
-    return Tagged("DWARF", entity) and HasStatus(entity, "MAG_DWARVEN_THROWER_TECHNICAL")
+function IsDwarf(entity)
+	local entity = entity or context.Source
+	return Tagged('DWARF',entity)
+end
+
+function IsDwarvenThrower(entity)
+    entity = entity or context.Target
+	return HasAnyStatus({'MAG_DWARVEN_THROWER_TECHNICAL'}, {}, {}, entity)
 end
 
 -- Radiant not covered in vanilla, not using this one due to character limits. Editing weapons instead.
