@@ -120,6 +120,12 @@ function MPoisThrow(entity)
 	return HasAnyStatus({'POISON_MALICE_DIPPED'}, {}, {}, entity)
 end
 
+-- Simple Toxin
+function SToxThrow(entity)
+    local entity = entity or context.HitDescription.ThrownObject
+	return HasAnyStatus({'ALCH_TOXIN_BASIC_DIPPED'}, {}, {}, entity)
+end
+
 -- Thisobald's Brewed-Up Bellyglummer
 function BGPoisThrow(entity)
     local entity = entity or context.HitDescription.ThrownObject
