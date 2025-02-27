@@ -1,3 +1,5 @@
+// A bunch of shit included in my throwing overhaul
+
 // ==================================== MAG_THUNDER_GREATER_THUNDER_WEAPON - 1d6 Thunder ====================================
 
 // new entry "MAG_THUNDER_GREATER_THUNDER_WEAPON"
