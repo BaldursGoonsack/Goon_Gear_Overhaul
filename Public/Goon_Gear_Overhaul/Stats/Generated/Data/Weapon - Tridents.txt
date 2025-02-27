@@ -1,19 +1,12 @@
 // ==================================== Nyrulna ====================================
 
-// Weapon
-
+// Nyrulna + Add "Target_DisarmingStrike"
 new entry "MAG_TheThorns_Trident"
 type "Weapon"
 // using "WPN_Trident_2"
 using "MAG_TheThorns_Trident"
-// data "RootTemplate" "daf0be7f-87d9-448a-b94e-471ffec40ac5"
-// data "ValueUUID" "d24c441f-7ebe-4229-8522-cf34c257ff20"
-// data "Rarity" "Legendary"
-// data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical)"
 // data "BoostsOnEquipMainHand" "UnlockSpell(Target_PiercingThrust);UnlockSpell(Target_CripplingStrike);UnlockSpell(Rush_MAG_ZephyrFlash);UnlockSpell(Zone_MAG_ZephyrBreak)"
 data "BoostsOnEquipMainHand" "UnlockSpell(Target_PiercingThrust);UnlockSpell(Target_DisarmingStrike);UnlockSpell(Target_CripplingStrike);UnlockSpell(Rush_MAG_ZephyrFlash);UnlockSpell(Zone_MAG_ZephyrBreak)"
-// data "PassivesOnEquip" "MAG_TheThorns_ExplosiveThrowing_Passive;MAG_TheThorns_VeilOfTheWind_Passive;MAG_Light_TheThorns_Passive"
-// data "Unique" "1"
 
 // ==================================== Throw ====================================
 

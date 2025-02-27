@@ -1,68 +1,70 @@
 // ==================================== MAG_THUNDER_GREATER_THUNDER_WEAPON - 1d6 Thunder ====================================
 
-new entry "MAG_THUNDER_GREATER_THUNDER_WEAPON"
-type "StatusData"
-data "StatusType" "BOOST"
-using "MAG_THUNDER_GREATER_THUNDER_WEAPON"
-data "Boosts" ""
+// new entry "MAG_THUNDER_GREATER_THUNDER_WEAPON"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "MAG_THUNDER_GREATER_THUNDER_WEAPON"
+// data "Boosts" ""
 
 // Nyrulna
-new entry "MAG_TheThorns_Trident"
-type "Weapon"
-using "MAG_TheThorns_Trident"
-data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical);WeaponDamage(1d6,Thunder)"
+// new entry "MAG_TheThorns_Trident"
+// type "Weapon"
+// using "WPN_Trident_2"
+// using "MAG_TheThorns_Trident"
+// data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical)"
+// data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical);WeaponDamage(1d6,Thunder)"
 
 // ==================================== MAG_RADIANT_STRONG_RADIANCE_WEAPON - 1d8 Radiant ====================================
 
-new entry "MAG_RADIANT_STRONG_RADIANCE_WEAPON"
-type "StatusData"
-data "StatusType" "BOOST"
-using "MAG_RADIANT_STRONG_RADIANCE_WEAPON"
-data "Boosts" ""
+// new entry "MAG_RADIANT_STRONG_RADIANCE_WEAPON"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "MAG_RADIANT_STRONG_RADIANCE_WEAPON"
+// data "Boosts" ""
 
 // Devotee's Mace
-new entry "MAG_Cleric_Devotees_Mace"
-type "Weapon"
-using "MAG_Cleric_Devotees_Mace"
-data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical);WeaponDamage(1d8,Radiant)"
+// new entry "MAG_Cleric_Devotees_Mace"
+// type "Weapon"
+// using "MAG_Cleric_Devotees_Mace"
+// data "DefaultBoosts" "WeaponEnchantment(3);WeaponProperty(Magical);WeaponDamage(1d8,Radiant)"
 
 // ==================================== MAG_RADIANT_RADIANCE_WEAPON - 1d4 Radiant ====================================
 
-new entry "MAG_RADIANT_RADIANCE_WEAPON"
-type "StatusData"
-data "StatusType" "BOOST"
-using "MAG_RADIANT_RADIANCE_WEAPON"
-data "Boosts" ""
+// new entry "MAG_RADIANT_RADIANCE_WEAPON"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "MAG_RADIANT_RADIANCE_WEAPON"
+// data "Boosts" ""
 
 // Torch of Revocation - Torch of True Revocation?
-new entry "LOW_OskarsBeloved_TorchOfTrueRevocation"
-type "Weapon"
-using "LOW_OskarsBeloved_TorchOfTrueRevocation"
-data "DefaultBoosts" "HiddenDuringCinematic();WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
+// new entry "LOW_OskarsBeloved_TorchOfTrueRevocation"
+// type "Weapon"
+// using "LOW_OskarsBeloved_TorchOfTrueRevocation"
+// data "DefaultBoosts" "HiddenDuringCinematic();WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
 
 // Shining Staver-of-Skulls
-new entry "MAG_Radiant_Radiating_Hammer"
-type "Weapon"
-using "MAG_Radiant_Radiating_Hammer"
-data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
+// new entry "MAG_Radiant_Radiating_Hammer"
+// type "Weapon"
+// using "MAG_Radiant_Radiating_Hammer"
+// data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
 
 // The Sacred Star
-new entry "MAG_RadiantLight_Morningstar"
-type "Weapon"
-using "MAG_RadiantLight_Morningstar"
-data "DefaultBoosts" "WeaponEnchantment(2);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
+// new entry "MAG_RadiantLight_Morningstar"
+// type "Weapon"
+// using "MAG_RadiantLight_Morningstar"
+// data "DefaultBoosts" "WeaponEnchantment(2);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
 
 // Pelorsun Blade
-new entry "MAG_LC_RadiantLight_Rapier"
-type "Weapon"
-using "MAG_LC_RadiantLight_Rapier"
-data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
+// new entry "MAG_LC_RadiantLight_Rapier"
+// type "Weapon"
+// using "MAG_LC_RadiantLight_Rapier"
+// data "DefaultBoosts" "WeaponEnchantment(1);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
 
 // Hammer of the Just
-new entry "MAG_Tyrrant_Warhammer"
-type "Weapon"
-using "MAG_Tyrrant_Warhammer"
-data "DefaultBoosts" "WeaponEnchantment(2);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
+// new entry "MAG_Tyrrant_Warhammer"
+// type "Weapon"
+// using "MAG_Tyrrant_Warhammer"
+// data "DefaultBoosts" "WeaponEnchantment(2);WeaponProperty(Magical);WeaponDamage(1d4,Radiant)"
 
 // ==================================== MAG_THUNDER_THUNDER_WEAPON - 1d4 Thunder ====================================
 

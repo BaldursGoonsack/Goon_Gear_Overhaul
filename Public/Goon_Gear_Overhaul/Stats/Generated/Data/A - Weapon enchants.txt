@@ -1,3 +1,12 @@
+// ==================================== Weapon Bond ====================================
+
+// Add "WeaponProperty(Thrown)" so all bonded weapons are throwing weapons
+new entry "WEAPON_BOND"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WEAPON_BOND"
+// data "Boosts" "CannotBeDisarmed();ItemReturnToOwner()"
+data "Boosts" "CannotBeDisarmed();ItemReturnToOwner();WeaponProperty(Thrown)"
 
 // ==================================== Weapon enchant overhaul ====================================
 
