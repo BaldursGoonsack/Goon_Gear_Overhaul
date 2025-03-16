@@ -1,3 +1,11 @@
+Refer to Elemental weapon
+
+data "MaximumTargets" "1"
+
+data "SpellProperties" "IF(Item()):ApplyStatus(ELEMENTAL_WEAPON_ACID,100,-1);IF(not Item()):ApplyEquipmentStatus(MainHand,ELEMENTAL_WEAPON_ACID,100,-1)"
+
+Make it only target self and look for weapon slot?
+
 // ==================================== Pact Blade ====================================
 
 new entry "PactOfTheBlade"
